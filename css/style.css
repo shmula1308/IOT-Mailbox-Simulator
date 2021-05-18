@@ -1,0 +1,48 @@
+/* font-family: 'Lato', sans-serif;
+font-family: 'Pangolin', cursive; */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  background: url("/images/mailbox-4k-qb.jpeg") no-repeat center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+}
+
+h1 {
+  margin: 0;
+}
+
+.mailbox__title {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 2.6rem;
+  color: #f4eee8;
+}
+
+.mailbox {
+  width: 40%;
+  margin: 12em 0 0 10em;
+  background-color: coral;
+  text-align: center;
+}
+
+.panel-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mailbox__panel {
+  width: 300px;
+  height: 250px;
+  background-color: cornflowerblue;
+}
