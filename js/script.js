@@ -116,11 +116,11 @@
 
   //EVENT: Reset 
 
-  // document.querySelector('.btn--reset').addEventListener('click',
-  // () => {
-  //   const logPanel = document.querySelector('.mailbox__panel--log');
-  //   const notificationPanel = document.querySelector('.mailbox__panel--notification');
-  //   logPanel.innerHTML = "";
-  //   notificationPanel.innerHTML = "";
-  //   interval.value = '';
-  // })
+  document.querySelector('.btn--reset').addEventListener('click',
+  () => {
+    const logPanel = document.querySelector('.mailbox__panel--log');
+    const notificationPanel = document.querySelector('.mailbox__panel--notification');
+    logPanel.innerHTML = "";
+    notificationPanel.innerHTML = "";
+    interval.value = '';
+  })
