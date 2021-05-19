@@ -23,6 +23,10 @@
      * @memberof IOTMailbox
      */
     startMonitoring = () => {
+      const logPanel = document.querySelector('.mailbox__panel--log');
+      const p = document.createElement('p');
+      p.textContent = 'Starting monitoring of mailbox...';
+      logPanel.append(p);
       console.log(`Starting monitoring of mailbox...`);
       this.intervalID = window.setInterval(this.signalStateChange, this.signalInterval);
     }
@@ -47,17 +51,76 @@
      * @memberof IOTMailbox
      */
     signalStateChange = () => {
+      
+      
       const lightLevel = this.lastLightLevel >= 0 
         ? Math.random().toFixed(2) * -1 
         : Math.random().toFixed(2);
+     
+
       console.log(`Mailbox state changed - lightLevel: ${lightLevel}`);
+      
       this.signalCallback(lightLevel);
       this.lastLightLevel = lightLevel;
     }
   };
 
-  const iot1 = new IOTMailbox(3000,signalCallback)
-  function signalCallback(light) {
-      console.log(light)
-  }
-  //console.log(iot1.startMonitoring())
+  
+  
+  
+
+
+ 
+
+  
+  //EVENT: Start Monitoring
+  let mailbox;
+  const interval = document.querySelector('.mailbox__monitoring-interval')
+  document.querySelector('.btn--start').addEventListener('click', (e)=>{
+
+      const callback = (lightLevel) => {
+        const logPanel = document.querySelector('.mailbox__panel--log');
+        const p = document.createElement('p');
+        let doorState = lightLevel < 0 ? "CLOSED" : "OPEN";
+        p.textContent = `lightLevel: ${lightLevel} - DOOR: ${doorState}`
+        logPanel.append(p);
+
+        if(doorState === 'OPEN') {
+          const notificationPanel = document.querySelector('.mailbox__panel--notification');
+          const p = document.createElement('p');
+          p.textContent = 'Door: OPEN'
+          notificationPanel.append(p);
+        }
+      }
+
+      if(!interval.value) {
+          mailbox = new IOTMailbox (500,callback);
+          mailbox.startMonitoring();
+          
+        } else {
+          mailbox = new IOTMailbox (Number(interval.value),callback);
+          mailbox.startMonitoring();
+        }   
+  })
+
+  //EVENT: Stop monitoring
+
+  document.querySelector('.btn--stop').addEventListener('click',
+  () => {
+    mailbox.stopMonitoring()
+    const logPanel = document.querySelector('.mailbox__panel--log');
+    const p = document.createElement('p');
+    p.textContent = 'Mailbox monitoring stopped...';
+    logPanel.append(p);
+  })
+
+  //EVENT: Reset 
+
+  document.querySelector('.btn--reset').addEventListener('click',
+  () => {
+    const logPanel = document.querySelector('.mailbox__panel--log');
+    const notificationPanel = document.querySelector('.mailbox__panel--notification');
+    logPanel.innerHTML = "";
+    notificationPanel.innerHTML = "";
+    interval.value = '';
+  })

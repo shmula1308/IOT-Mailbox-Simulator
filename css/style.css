@@ -10,39 +10,106 @@ font-family: 'Pangolin', cursive; */
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
-  background: url("/images/mailbox-4k-qb.jpeg") no-repeat center;
+  background: linear-gradient(transparent, lightblue),
+    url("/images/mailbox-4k-qb.jpeg") no-repeat center;
   background-size: cover;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 button {
   font-family: inherit;
+  border: none;
+  padding: 1em 1.7em;
+  border-radius: 5px;
+  background-color: cadetblue;
+  color: aliceblue;
+  cursor: pointer;
+  margin-left: 0.5em;
+}
+
+button:hover {
+  background-color: rgb(112, 194, 197);
+}
+
+button:active {
+  background-color: rgb(129, 228, 231);
+}
+
+.btn--stop {
+  background-color: indianred;
+}
+
+.btn--stop:hover {
+  background-color: rgb(226, 99, 99);
+}
+
+.btn--stop:active {
+  background-color: rgb(252, 129, 129);
+}
+
+.btn--reset {
+  background-color: maroon;
+}
+
+.btn--reset:hover {
+  background-color: rgb(148, 1, 1);
+}
+.btn--reset:active {
+  background-color: rgb(173, 3, 3);
 }
 
 h1 {
   margin: 0;
+  line-height: 45px;
+}
+
+input[type="number"] {
+  width: 250px;
+  padding: 0.5em;
 }
 
 .mailbox__title {
   font-family: "Titillium Web", sans-serif;
   font-size: 2.6rem;
   color: #f4eee8;
+  margin-bottom: 1.5em;
 }
 
 .mailbox {
   width: 40%;
   margin: 12em 0 0 10em;
-  background-color: coral;
+  background-color: rgba(255, 255, 255, 0.4);
   text-align: center;
+  padding: 3em;
+  border-radius: 15px;
 }
 
 .panel-container {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 2em;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 1em;
+  color: darkslategrey;
 }
 
 .mailbox__panel {
-  width: 300px;
   height: 250px;
-  background-color: cornflowerblue;
+  background-color: #4d4033;
+  overflow: scroll;
+  color: aliceblue;
+  text-align: left;
+  padding: 1em;
+}
+
+.output-group {
+  flex-basis: 45%;
+}
+
+.buttons-container {
+  margin-top: 1.5em;
 }

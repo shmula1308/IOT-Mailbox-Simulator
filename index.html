@@ -10,17 +10,23 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="script.js" defer></script>
+    <script src="js/script.js" defer></script>
     <title>IOT Mailbox Simulator</title>
   </head>
   <body>
     <div class="mailbox">
       <h1 class="mailbox__title">IOT Mailbox Simulator</h1>
       <div class="panel-container">
-        <div class="mailbox__panel mailbox__panel--notification"></div>
-        <div class="mailbox__panel mailbox__panel--log"></div>
+        <div class="output-group">
+          <label>Notification Panel</label>
+          <div class="mailbox__panel mailbox__panel--notification"></div>
+        </div>
+        <div class="output-group">
+          <label>Log Panel</label>
+          <div class="mailbox__panel mailbox__panel--log"></div>
+        </div>
       </div>
-      <label for="interval">Monitoring Interval</label>
+      <label for="interval">Monitoring Interval</br>(default value: 500ms)</label></br>
       <input
         type="number"
         class="mailbox__monitoring-interval"
@@ -28,11 +34,12 @@
         max="3000"
         step="100"
         name="interval"
+        placeholder="monitoring interval in miliseconds"
       />
       <div class="buttons-container">
-        <button class="btn">Start Monitoring</button>
-        <button class="btn">Stop Monitoring</button>
-        <button class="btn">Reset</button>
+        <button class="btn btn--start">Start Monitoring</button>
+        <button class="btn btn--stop">Stop Monitoring</button>
+        <button class="btn btn--reset">Reset</button>
       </div>
     </div>
   </body>
